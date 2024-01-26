@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Dang ki tai khoan</h1>
+<form action="/auth/register" method="post" th:object="${account}" >
+    <div>
+        <h3>FullName</h3>
+        <input name="fullName" type="text" th:field="*{fullName}"/>
+        <p th:if="${#fields.hasErrors('fullName')}" class="error" th:errors="*{fullName}"></p>
+
+    </div>
+    <div>
+        <h3>UserName</h3>
+        <input type="text" name="username" th:field="*{username}"/>
+        <p th:if="${#fields.hasErrors('username')}" class="error" th:errors="*{username}"></p>
+
+    </div>
+    <div>
+        <h3>Password</h3>
+        <input type="password" name="password" th:field="*{password}"/>
+        <p th:if="${#fields.hasErrors('password')}" class="error" th:errors="*{password}"></p>
+
+    </div>
+    <div>
+        <h3>Confirm Password</h3>
+        <input type="password" name="confirmPassword" th:field="*{confirmPassword}"/>
+        <p th:if="${#fields.hasErrors('confirmPassword')}" class="error" th:errors="*{confirmPassword}"></p>
+
+    </div>
+    <div>
+        <h3>Phone</h3>
+        <input type="text" name="phone" th:field="*{phone}"/>
+        <p th:if="${#fields.hasErrors('phone')}" class="error" th:errors="*{phone}"></p>    </div>
+    <div>
+        <button type="submit">Register</button>
+    </div>
+</form>
+</body>
+</html>
